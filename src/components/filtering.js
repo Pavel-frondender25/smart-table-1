@@ -7,7 +7,7 @@ export function initFiltering(elements, indexes) {
     // @todo: #4.1 — заполнить выпадающие списки опциями
     Object.keys(indexes)                                    // Получаем ключи из объекта
         .forEach((elementName) => {                        // Перебираем по именам
-            elements[elementName].append(                    // в каждый элемент добавляем опции
+            elements[elementName].append(new Option('All', ''),                    // в каждый элемент добавляем опции
                 ...Object.values(indexes[elementName])        // формируем массив имён, значений опций
                     .map(name => {// используйте name как значение и текстовое содержимое
                         const option = document.createElement('option');// @todo: создать и вернуть тег опции

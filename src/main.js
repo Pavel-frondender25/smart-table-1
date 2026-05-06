@@ -9,7 +9,6 @@ import { initPagination } from './components/pagination.js';
 import { initTable } from "./components/table.js";
 import { initSorting } from './components/sorting.js';
 import { initFiltering } from './components/filtering.js';
-import { rules, createComparison } from './lib/compare.js';
 import { initSearching } from './components/searching.js';
 // @todo: подключение
 
@@ -41,10 +40,10 @@ function render(action) {
     let state = collectState(); // состояние полей из таблицы
     let result = [...data]; // копируем для последующего изменения
     // @todo: использование
+    result = applySearching(result, state, action);
     result = applyFiltering(result, state, action);
     result = applySorting(result, state, action);
     result = applyPagination(result, state, action);
-    result = applySearching(result, state, action);
     sampleTable.render(result)
 }
 

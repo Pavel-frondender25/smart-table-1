@@ -22,10 +22,11 @@ export function initSorting(columns) {
                 if (column.dataset.value !== 'none') {
                     field = column.dataset.field;
                     order = column.dataset.value;
+                    return true;
                 }
             })
         }
 
         return sortCollection(data, field, order);
-    };
+    }
 }
